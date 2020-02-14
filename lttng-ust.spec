@@ -1,6 +1,6 @@
 Name:           lttng-ust
 Version:        2.10.1
-Release:        5
+Release:        2
 Summary:        LTTng Userspace Tracer library
 License:        LGPLv2 and GPLv2 and MIT
 URL:            https://lttng.org
@@ -38,6 +38,9 @@ make %{?_smp_mflags} V=1
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
+%check
+make check
+
 %files
 %{_libdir}/*.so.*
 %exclude %{_libdir}/*.la
@@ -55,6 +58,9 @@ make %{?_smp_mflags} V=1
 %{_docdir}/%{name}/*
 
 %changelog
-* Thu Aug 15 2019 openEuler Buildteam <buildteam@openeuler.org> - 2.10.1-5
+* Fri Feb 14 2020 liuchao <liuchao173@huawei.com> - 2.10.1-2
+- enable make check
+
+* Thu Aug 15 2019 openEuler Buildteam <buildteam@openeuler.org> - 2.10.1-1
 - Package init
 
