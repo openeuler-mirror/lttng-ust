@@ -1,11 +1,12 @@
 Name:           lttng-ust
 Version:        2.10.1
-Release:        6
+Release:        7
 Summary:        LTTng Userspace Tracer library
 License:        LGPLv2 and GPLv2 and MIT
 URL:            https://lttng.org
 
 Source0:        https://lttng.org/files/lttng-ust/%{name}-%{version}.tar.bz2
+Patch0:         Fix-namespace-our-gettid-wrapper.patch
 
 BuildRequires:  python2 libuuid-devel texinfo autoconf automake libtool
 BuildRequires:  userspace-rcu-devel >= 0.8.0
@@ -58,6 +59,9 @@ make check
 %{_docdir}/%{name}/*
 
 %changelog
+* Thu Jul 30 2020 jinzhimin<jinzhimin2@huawei.com> - 2.10.1-7
+- Add patch to build on glibc >= 2.30
+
 * Fri Feb 14 2020 liuchao <liuchao173@huawei.com> - 2.10.1-6
 - enable make check
 
