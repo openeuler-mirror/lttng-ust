@@ -1,6 +1,6 @@
 Name:           lttng-ust
 Version:        2.10.1
-Release:        6
+Release:        7
 Summary:        LTTng Userspace Tracer library
 License:        LGPLv2 and GPLv2 and MIT
 URL:            https://lttng.org
@@ -58,6 +58,12 @@ make check
 %{_docdir}/%{name}/*
 
 %changelog
+* Fri Aug 21 2020 yuboyun <yuboyun@huawei.com> - 2.10.1-7
+- Type: bugfix
+- ID: NA
+- SUG: NA
+- DESC: release +1 for rebuild
+
 * Fri Feb 14 2020 liuchao <liuchao173@huawei.com> - 2.10.1-6
 - enable make check
 
