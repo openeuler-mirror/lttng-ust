@@ -1,6 +1,6 @@
 Name:           lttng-ust
 Version:        2.10.1
-Release:        9
+Release:        10
 Summary:        LTTng Userspace Tracer library
 License:        LGPLv2 and GPLv2 and MIT
 URL:            https://lttng.org
@@ -8,6 +8,7 @@ URL:            https://lttng.org
 Source0:        https://lttng.org/files/lttng-ust/%{name}-%{version}.tar.bz2
 Patch0:         Fix-namespace-our-gettid-wrapper.patch
 Patch1:         lttng-gen-tp-shebang.patch
+patch2:		fix-build-with-fno-common.patch
 
 BuildRequires:  libuuid-devel autoconf automake libtool
 BuildRequires:  userspace-rcu-devel >= 0.8.0
@@ -60,6 +61,9 @@ make check
 %{_docdir}/%{name}/*
 
 %changelog
+* Fri Jul 30 2021 zhouwenpei <zhouwenpei1@huawei.com> - 2.10.1-10
+- fix build with -fno-common
+
 * Mon Nov 02 2020 xinghe <xinghe1@huawei.com> - 2.10.1-9
 - fix lttng-gen-tp command
 
