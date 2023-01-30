@@ -1,18 +1,18 @@
 Name:           lttng-ust
-Version:        2.10.1
-Release:        11
+Version:        2.13.5
+Release:        1
 Summary:        LTTng Userspace Tracer library
 License:        LGPLv2 and GPLv2 and MIT
 URL:            https://lttng.org
 
 Source0:        https://lttng.org/files/lttng-ust/%{name}-%{version}.tar.bz2
-Patch0:         Fix-namespace-our-gettid-wrapper.patch
-Patch1:         lttng-gen-tp-shebang.patch
-Patch2:		fix-build-with-fno-common.patch
-Patch3:		0001-Adapt-lttng-ust-to-use-multiflavor-symbols-form-liburcu-0.11.patch
 
 BuildRequires:  libuuid-devel autoconf automake libtool
 BuildRequires:  userspace-rcu-devel >= 0.8.0
+BuildRequires:  numactl-devel
+BuildRequires:  asciidoc
+BuildRequires:  xmlto
+
 
 %description
 This library is used by user-space applications to generate trace-points using LTTng.
@@ -62,6 +62,9 @@ make check
 %{_docdir}/%{name}/*
 
 %changelog
+* Mon Jan 30 2023 Wenyu Liu <liuwenyu7@huawei.com> - 2.13.5-1
+- Update to 2.13.5
+
 * Mon Dec 20 2021 zhouwenpei <zhouwenpei1@huawei.com> - 2.10.1-11
 - fix build error
 
