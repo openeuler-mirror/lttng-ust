@@ -1,6 +1,6 @@
 Name:           lttng-ust
 Version:        2.13.5
-Release:        1
+Release:        2
 Summary:        LTTng Userspace Tracer library
 License:        LGPLv2 and GPLv2 and MIT
 URL:            https://lttng.org
@@ -31,6 +31,10 @@ The devel for %{name}
 %autosetup -n %{name}-%{version} -p1
 
 %build
+%if "%toolchain" == "clang"
+	export CFLAGS="$CFLAGS -O0"
+	export CXXFLAGS="$CXXFLAGS -O0"
+%endif
 autoreconf -vif
 
 %configure --docdir=%{_docdir}/%{name}
@@ -62,6 +66,9 @@ make check
 %{_docdir}/%{name}/*
 
 %changelog
+* Thu May 25 2023 yoo <sunyuechi@iscas.ac.cn> - 2.13.5-2
+- fix clang test
+
 * Mon Jan 30 2023 Wenyu Liu <liuwenyu7@huawei.com> - 2.13.5-1
 - Update to 2.13.5
 
